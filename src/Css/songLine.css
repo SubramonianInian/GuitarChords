@@ -1,0 +1,63 @@
+.song-line {
+    font-family: monospace;
+    white-space: pre;
+    margin: 0.25em 0px;
+    font-size: 15px;
+}
+
+.song-line:hover .innerText {
+    display: block;
+}
+
+.chordLine {
+    display: inline-flex;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.prefromat {
+    background-color: aliceblue;
+}
+
+.songTile {
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    position: absolute;
+    z-index: 999;
+    border: 1.5px solid #333;
+    background-color: #333;
+    background-size: contain;
+    height: 230px;
+    width: 180px;
+    transform: translateY(-25%);
+}
+
+.songTiles {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    width: 0;
+    border-top: 20px solid black;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    padding-left: 10px;
+}
+
+.chord-spacer {
+    float: left;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}

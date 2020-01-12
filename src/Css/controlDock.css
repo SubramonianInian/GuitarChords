@@ -1,0 +1,17 @@
+.controlDock {
+    background-color: aliceblue;
+    border-radius: 25px;
+}
+
+.transponseValue {
+    width: 20px;
+    transform: translateY(-7px);
+    height: 20px;
+    border: none;
+}
+
+.transponseHeading {
+    position: absolute;
+    padding-left: 15px;
+    padding-top: 8px;
+}
