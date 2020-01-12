@@ -4,6 +4,7 @@ import ControlDock from "./controlDock";
 import songData from "../Json/en.json";
 import { lineType } from "../Components/Utility/enums";
 import "../Css/chordDisplayer.css";
+import { songInfo } from "../Components/Interfaces/songInfo";
 let chordfinder = require("counterpart");
 
 //Declare the state interface
@@ -16,6 +17,7 @@ interface Props {
   selectedSong: string;
 }
 
+
 export default class chordDisplayer extends React.Component<Props, State> {
   constructor(props: Props, state: State) {
     super(props, state);
@@ -25,16 +27,21 @@ export default class chordDisplayer extends React.Component<Props, State> {
     let selectedFile = "songdata";
     chordfinder.registerTranslations("songdata", songData);
     chordfinder.setLocale(selectedFile);
+    this.songDetails ={
+      songName: '',
+      movieName: ''
+    };
   }
 
   private transponseValue: number = 0;
-  private showChords: boolean = true;
+  private hideChords: boolean = false;
+  private songDetails: songInfo 
   //Render Functions
   public render() {
-    let movieName: string = chordfinder.translate(
+    this.songDetails.movieName = chordfinder.translate(
       "song." + this.props.selectedSong + ".movie-name"
     );
-    let songName: string = chordfinder.translate(
+    this.songDetails.songName = chordfinder.translate(
       "song." + this.props.selectedSong + ".song-name"
     );
     let chord: string = chordfinder.translate(
@@ -51,20 +58,22 @@ export default class chordDisplayer extends React.Component<Props, State> {
           lyricAndChordlines={item}
           isLyricOrChord={this.isLyricOrChord(index)}
           tranponseLevel={this.transponseValue}
-          hideChords={this.showChords}
+          hideChords={this.hideChords}
         />
       );
     });
-    return songName === this.props.selectedSong.replace("_", " ") ? (
+    return this.songDetails.songName === this.props.selectedSong.replace("_", " ") ? (
       <div>
         <ControlDock
+          key={Date.now()}
+          songDetails ={this.songDetails}
           transponseChords={this.transposeChords}
           transponsValue={this.transponseValue}
-          hideChords={this.hideChords}
-          isChordVisible={this.showChords}
+          hideChords={this.doShowChords}
+          isChordVisible={this.hideChords}
         />
-        <h3 className="songName">{songName}</h3>
-        <h4 className="movieName">{movieName}</h4>
+        {/* <h3 className="songName">{this.songDetails.songName}</h3>
+        <h4 className="movieName">{this.songDetails.movieName}</h4> */}
         <div className="lyricsAndChords">{lyricsAndChords}</div>
       </div>
     ) : null;
@@ -82,8 +91,8 @@ export default class chordDisplayer extends React.Component<Props, State> {
   };
 
   //Hide chords functionality
-  private hideChords = (showChords: boolean): void => {
-    this.showChords = showChords;
+  private doShowChords = (showChords: boolean): void => {
+    this.hideChords = showChords;
     this.renderNow();
   };
 

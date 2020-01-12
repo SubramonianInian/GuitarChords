@@ -1,25 +1,38 @@
 import React from "react";
 import "../Css/controlDock.css";
-import { runInThisContext } from "vm";
+import { songInfo } from "../Components/Interfaces/songInfo";
+
 //Declare the state interface
-interface State {renderNow: number}
+interface State {
+  renderNow: number;
+}
 
 //Declare the prop interface
 interface Props {
-  transponseChords: Function,
-  transponsValue: number,
-  hideChords:Function;
-  isChordVisible: boolean
-
+  key: number;
+  songDetails: songInfo;
+  transponseChords: Function;
+  transponsValue: number;
+  hideChords: Function;
+  isChordVisible: boolean;
 }
 
 export default class controlDock extends React.Component<Props, State> {
   constructor(props: Props, state: State) {
     super(props, state);
   }
+
+  // Song Details
+
+  private songInformation: JSX.Element = (
+    <div className="songDetails">
+      <h3 className="songName">{this.props.songDetails.songName}</h3>
+      <h4 className="movieName">{this.props.songDetails.movieName}</h4>
+    </div>
+  );
   // Transponse Chord Element
   private transposeTool: JSX.Element = (
-    <div>
+    <div className="dockActionTransponse">
       <h6 className="transponseHeading">Transponse</h6>
       <a
         href="javascript:void(0)"
@@ -45,12 +58,24 @@ export default class controlDock extends React.Component<Props, State> {
   );
 
   // Hide Chords Element
-  private showChords: JSX.Element = <input type="radio" name='Show Chords' checked={this.props.isChordVisible} onChange ={() => this.hideChords(this.props.isChordVisible)}></input>;
+  private showChords: JSX.Element = (
+    <div className="dockActionHideChords">
+      <h6 className="hideChordHeading">Hide Chords</h6>
+      <input
+        className="hideChordRadio"
+        type="radio"
+        name="Show Chords"
+        checked={this.props.isChordVisible}
+        onClick={() => this.hideChords(this.props.isChordVisible)}
+      ></input>
+    </div>
+  );
 
   //Render Method
   public render() {
     return (
-      <div className="controlDock">
+      <div key={this.props.key} className="controlDock">
+        {this.songInformation}
         {this.transposeTool}
         {this.showChords}
       </div>
@@ -65,7 +90,8 @@ export default class controlDock extends React.Component<Props, State> {
     this.props.transponseChords(transponseValue);
   };
 
-  private hideChords = (showChords: boolean): void =>{
-      this.props.hideChords(!showChords)
-  }
+  //Hide chords functionality
+  private hideChords = (showChords: boolean): void => {
+    this.props.hideChords(!showChords);
+  };
 }

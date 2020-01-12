@@ -8,10 +8,34 @@
     transform: translateY(-7px);
     height: 20px;
     border: none;
+    text-align: center;
 }
 
 .transponseHeading {
     position: absolute;
     padding-left: 15px;
     padding-top: 8px;
+}
+
+.dockActionTransponse {
+    float: left;
+}
+
+.dockActionHideChords {
+    float: right;
+    transform: translate(-25px, 10px);
+}
+
+.hideChordHeading {
+    float: left;
+    padding-right: 3px;
+}
+
+.hideChordRadio {
+    transform: translateY(-2px);
+}
+
+.songDetails {
+    display: inline-block;
+    transform: translateX(50%);
 }
