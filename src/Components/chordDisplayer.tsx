@@ -78,13 +78,13 @@ export default class chordDisplayer extends React.Component<Props, State> {
   //Transponse functionality
   private transposeChords = (transponseValue: number): void => {
     this.transponseValue = transponseValue;
-    this.renderNow;
+    this.renderNow();
   };
 
   //Hide chords functionality
   private hideChords = (showChords: boolean): void => {
     this.showChords = showChords;
-    this.renderNow;
+    this.renderNow();
   };
 
   //Render Now
