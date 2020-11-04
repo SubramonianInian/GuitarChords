@@ -23,7 +23,6 @@ export default class controlDock extends React.Component<Props, State> {
   }
 
   // Song Details
-
   private songInformation: JSX.Element = (
     <div className="songDetails">
       <h3 className="songName">{this.props.songDetails.songName}</h3>
@@ -34,6 +33,7 @@ export default class controlDock extends React.Component<Props, State> {
   private transposeTool: JSX.Element = (
     <div className="dockActionTransponse">
       <h6 className="transponseHeading">Transponse</h6>
+      <div  id='transposeControls'>
       <a
         href="javascript:void(0)"
         className="transponseButton"
@@ -54,6 +54,7 @@ export default class controlDock extends React.Component<Props, State> {
       >
         -
       </a>
+     </div>
     </div>
   );
 
@@ -74,11 +75,12 @@ export default class controlDock extends React.Component<Props, State> {
   //Render Method
   public render() {
     return (
-      <div key={this.props.key} className="controlDock">
-        {this.songInformation}
+      <main>
         {this.transposeTool}
+        {this.songInformation}
         {this.showChords}
-      </div>
+      
+      </main>
     );
   }
 

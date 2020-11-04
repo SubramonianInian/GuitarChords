@@ -25,7 +25,7 @@ export default class chordDisplayer extends React.Component<Props, State>{
         return (
             <div className='custom-padding'>
                 <nav>
-                    <div className='logo'>Chords</div>
+                    <div className='logo'>Guitar Chords</div>
 
                     <ul className='menu-area'>
                         <li><a href="#">Home</a></li>

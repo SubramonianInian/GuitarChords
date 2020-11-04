@@ -3,7 +3,6 @@ import LyricAndChordsFormatter from "./songlines";
 import ControlDock from "./controlDock";
 import songData from "../Json/en.json";
 import { lineType } from "../Components/Utility/enums";
-import "../Css/chordDisplayer.css";
 import { songInfo } from "../Components/Interfaces/songInfo";
 let chordfinder = require("counterpart");
 

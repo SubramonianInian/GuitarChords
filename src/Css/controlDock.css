@@ -1,41 +1,74 @@
-.controlDock {
-    background-color: aliceblue;
-    border-radius: 25px;
+/* Using CSS grid to design the control dock */
+
+main {
+    display: grid;
+    grid-template-columns: 1.25fr 3fr 1.25fr;
+    background-blend-mode: color-burn;
+    background: radial-gradient(#525252, #131313);
+    border-radius: 15px;
+    color: white;
 }
 
 .transponseValue {
     width: 20px;
-    transform: translateY(-7px);
     height: 20px;
     border: none;
     text-align: center;
 }
 
-.transponseHeading {
-    position: absolute;
-    padding-left: 15px;
-    padding-top: 8px;
+#transposeControls {
+    padding-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .dockActionTransponse {
-    float: left;
+    padding: 15% 15%;
 }
 
 .dockActionHideChords {
-    float: right;
-    transform: translate(-25px, 10px);
+    display: flex;
+    text-align: center;
+    padding: 15% 15%;
+}
+
+.transponseHeading {
+    text-align: center;
+    font-family: sans-serif;
 }
 
 .hideChordHeading {
-    float: left;
-    padding-right: 3px;
-}
-
-.hideChordRadio {
-    transform: translateY(-2px);
+    padding-right: 10px;
 }
 
 .songDetails {
-    display: inline-block;
-    transform: translateX(50%);
+    text-align: center;
+    padding: 5% 5%;
+    font-family: Quicksand;
+    font-weight: lighter;
+}
+
+.transponseButton {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+/* disabling all achor decorations */
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }

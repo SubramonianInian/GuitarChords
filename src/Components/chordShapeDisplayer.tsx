@@ -167,7 +167,7 @@ export default class chordShapeDisplayer extends React.Component<Props, State> {
 
   //Transpose the chords based on the transpostion level
   private getChordBasedOnTransposeLevel = (): void => {
-    let scale = [
+    let sharpScale: string[] = [
       "C",
       "C#",
       "D",
@@ -181,6 +181,23 @@ export default class chordShapeDisplayer extends React.Component<Props, State> {
       "A#",
       "B"
     ];
+
+    let flatScale: string[] = [
+      "C",
+      "Db",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "Gb",
+      "G",
+      "Ab",
+      "A",
+      "A#",
+      "B"
+    ];
+
+    let scale: string[] = sharpScale;
     let transposedChords: string[] = [];
     let that = this;
     this.splitChords.map(function(item) {

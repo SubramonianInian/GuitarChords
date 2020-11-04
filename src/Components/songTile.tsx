@@ -24,7 +24,7 @@ export default class songTile extends React.Component<Props, State> {
   //Private variables
   private displayDataType: displayDataType = displayDataType.tileView;
   private imageLocations: string[] = [
-    "https://i.ytimg.com/vi/_ZL-t8BAOm4/maxresdefault.jpg?key=Malarae_Mounamaa",
+    "https://lh3.googleusercontent.com/Pke5rokZcKZxHolGda-lc0dZIzPQyYdR6i45xwiDXzIjl0iFLt5H3U4jdHeuKA5gNmyz=w1920-h1007-rw?key=Malarae_Mounamaa",
     "http://www.tamilkaraokefree.com/wp-content/uploads/2016/09/Vaaranam-Aayiram.png?key=Nenjukkul_Peidhidu",
     "http://www.tamilkaraokefree.com/wp-content/uploads/2016/09/Vaaranam-Aayiram.png?key=Nenjukkul_Peidhidm",
     "http://www.tamilkaraokefree.com/wp-content/uploads/2016/09/Vaaranam-Aayiram.png?key=Nenjukkul_Peidhdum",
@@ -51,8 +51,10 @@ export default class songTile extends React.Component<Props, State> {
     let classNames: string =
       this.displayDataType === displayDataType.chordView ? "container" : "";
     return (
+      <div className="SongTileContainer">
       <div className={classNames}>
         {this.imageLocations.map(this.renderImageContent)}
+      </div>
       </div>
     );
   }
@@ -61,7 +63,7 @@ export default class songTile extends React.Component<Props, State> {
   private renderImageContent = (src: string): JSX.Element => {
     let key: string = this.getkey(src);
     let songTile: any = (
-      <div onClick={() => this.onSongSelect(key)} key={key}>
+      <div className="indiSongTile" onClick={() => this.onSongSelect(key)} key={key}>
         <img
           className="song-Tile"
           src={src}

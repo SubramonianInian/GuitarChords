@@ -17,9 +17,9 @@ export default class chordDisplayer extends React.Component<Props, State> {
   //Render Functions
   public render() {
     return (
-      <div className="page-container">
+
         <SongTile />
-      </div>
+      
     );
   }
 }
